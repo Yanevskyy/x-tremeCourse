@@ -2,16 +2,17 @@ package com.yanevskyy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Converts date to date of week in format of string
  */
-class DateDAO {
-    private static Logger LOGGER = LoggerFactory.getLogger(DateDAO.class);
+class DateDAO implements DAO{
+    private static Logger LOGGER = LoggerFactory.getLogger(DAO.class);
 
-    String getDayOfWeek(Date date){
+    public String getDayOfWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
