@@ -5,7 +5,7 @@ import java.text.ParseException;
 /**
  * @author Yanevskyy Igor igor2000@inbox.ru.
  */
-public interface Service {
+public interface ControllerDay {
 
-    String parseDate(String date) throws ParseException;
+    public String parseDate(String date) throws ParseException;
 }

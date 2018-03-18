@@ -11,7 +11,7 @@ import java.text.ParseException;
 public class App {
     private static Logger LOGGER = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
-        Controller controller = new DateController();
+        ControllerDay controller = new UIdate();
         for (String date : args) {
             LOGGER.info("Start program with param " + date);
             try {

@@ -1,5 +1,6 @@
 package com.yanevskyy;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,8 +10,8 @@ import java.util.Date;
 /**
  * Converts date to date of week in format of string
  */
-class DateDAO implements DAO{
-    private static Logger LOGGER = LoggerFactory.getLogger(DAO.class);
+class DaysDAO implements FinderDay {
+    private static Logger LOGGER = LoggerFactory.getLogger(FinderDay.class);
 
     public String getDayOfWeek(Date date) {
         Calendar calendar = Calendar.getInstance();
