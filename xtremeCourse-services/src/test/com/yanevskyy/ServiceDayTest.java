@@ -33,15 +33,15 @@ public class ServiceDayTest {
         }
     }
 
-    @Test
+    @Test(expected = ParseException.class)
     public void testReturnFinishedFebruary2018() throws ParseException {
         Date february2018 = DATE_FORMAT.parse("29.02.2018");
-        doThrow(new ParseException("Unparseable date: \"29.02.2018\"", 1)).when(dayDao.getDayOfWeek(february2018));
+        doThrow(new Exception()).when(dayDao).getDayOfWeek(february2018);
 
-        dayDao.getDayOfWeek(february2018);
+//        dayDao.getDayOfWeek(february2018);
     }
 
-    @Test(expected = ParseException.class)
+    @Test
     public void testReturnFinishedFebruary2016() throws ParseException {
         Date february2016 = DATE_FORMAT.parse("29.02.2016");
         when(dayDao.getDayOfWeek(february2016)).thenReturn("MONDAY");
