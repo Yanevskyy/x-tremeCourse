@@ -9,14 +9,18 @@ import java.util.Date;
 /**
  * Checks string if  date is valid.
  */
-class ServiceDay implements ParserDay {
-    private static Logger LOGGER = LoggerFactory.getLogger(ServiceDay.class);
-    private FinderDay mFinderDay = new DaysDAO();
+class ServiceDates implements ParserDates {
+    private static Logger LOGGER = LoggerFactory.getLogger(ServiceDates.class);
+    private QualifierDates mQualifierDates;
     private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+
+    public ServiceDates(QualifierDates qualifierDates) {
+        mQualifierDates = qualifierDates;
+    }
 
     public String parseDate(String date) throws ParseException {
         LOGGER.info("Parse string " + date);
-        return mFinderDay.getDayOfWeek(getValidDate(date));
+        return mQualifierDates.getDayOfWeek(getValidDate(date));
     }
 
     private Date getValidDate(String date) throws ParseException {

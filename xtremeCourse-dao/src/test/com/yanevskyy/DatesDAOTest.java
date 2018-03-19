@@ -7,9 +7,9 @@ import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
-public class DaysDAOTest {
+public class DatesDAOTest {
     private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
-    DaysDAO daysDAO = new DaysDAO();
+    DatesDAO mDatesDAO = new DatesDAO();
     String[] daysOfWeek = {"SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY"};
 
     @Test
@@ -19,7 +19,7 @@ public class DaysDAOTest {
 
         for (int i = 0; i < daysOfWeek.length; i++) {
             Date dateTest = DATE_FORMAT.parse(calendarDays[i]);
-            String result = daysDAO.getDayOfWeek(dateTest);
+            String result = mDatesDAO.getDayOfWeek(dateTest);
             assertEquals(daysOfWeek[i], result);
         }
     }

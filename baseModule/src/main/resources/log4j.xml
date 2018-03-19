@@ -9,7 +9,7 @@
         </layout>
     </appender>
 
-    <!--<logger name="com.yanevskyy.UIdate" additivity="false">-->
+    <!--<logger name="com.yanevskyy.UiDateController" additivity="false">-->
         <!--<level value ="debug" />-->
         <!--<appender-ref ref="console" />-->
     <!--</logger>-->

@@ -11,11 +11,12 @@ import java.text.ParseException;
 public class App {
     private static Logger LOGGER = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
-        ControllerDay controller = new UIdate();
+        QualifierDates qualifierDates = new DatesDAO();
+        ParserDates parserDates = new ServiceDates(qualifierDates);
         for (String date : args) {
             LOGGER.info("Start program with param " + date);
             try {
-                System.out.println(controller.parseDate(date));
+                System.out.println(parserDates.parseDate(date));
             } catch (ParseException e) {
                 LOGGER.info("Error parse. Incorrect format of date");
                 e.printStackTrace();
