@@ -18,8 +18,7 @@ public class App {
             try {
                 System.out.println(parserDates.parseDate(date));
             } catch (ParseException e) {
-                LOGGER.info("Error parse. Incorrect format of date");
-                e.printStackTrace();
+                LOGGER.error(e.getMessage());
             }
         }
     }
