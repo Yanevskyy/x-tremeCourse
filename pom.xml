@@ -12,6 +12,9 @@
     <module>xtremeCourse-services</module>
     <module>xtremeCourse-ui</module>
   </modules>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencyManagement>
     <dependencies>
       <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
@@ -20,6 +23,7 @@
         <artifactId>slf4j-log4j12</artifactId>
         <version>1.8.0-alpha2</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/junit/junit -->
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
