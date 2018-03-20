@@ -14,6 +14,7 @@
     <dependency>
       <groupId>com.yanevskyy</groupId>
       <artifactId>xtremeCourse-dao</artifactId>
+      <version>1.0</version>
       <exclusions>
         <exclusion>
           <groupId>com.yanevskyy</groupId>

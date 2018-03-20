@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.yanevskyy</groupId>
   <artifactId>xtremeCourse</artifactId>
@@ -34,16 +36,6 @@
       </dependency>
       <dependency>
         <groupId>com.yanevskyy</groupId>
-        <artifactId>xtremeCourse-services</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.yanevskyy</groupId>
-        <artifactId>xtremeCourse-dao</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.yanevskyy</groupId>
         <artifactId>baseModule</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -67,7 +59,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
+              <classpathPrefix>com.yanevskyy</classpathPrefix>
               <mainClass>App</mainClass>
             </manifest>
           </archive>
@@ -83,26 +75,46 @@
       </plugin>
     </plugins>
   </build>
-  <!--<profiles>-->
-    <!--&lt;!&ndash; The Configuration of the development profile &ndash;&gt;-->
-    <!--<profile>-->
-      <!--<id>development</id>-->
-      <!--<activation>-->
-        <!--<activeByDefault>true</activeByDefault>-->
-      <!--</activation>-->
-      <!--<properties>-->
-        <!--<build.profile.id>development</build.profile.id>-->
-        <!--<skip.integration.tests>true</skip.integration.tests>-->
-        <!--<skip.unit.tests>true</skip.unit.tests>-->
-      <!--</properties>-->
-    <!--</profile>-->
-    <!--<profile>-->
-      <!--<id>integration-test</id>-->
-      <!--<properties>-->
-        <!--<build.profile.id>integration-test</build.profile.id>-->
-        <!--<skip.integration.tests>false</skip.integration.tests>-->
-        <!--<skip.unit.tests>true</skip.unit.tests>-->
-      <!--</properties>-->
-    <!--</profile>-->
-  <!--</profiles>-->
+  <profiles>
+    <!--SkipTestCompilation – при выборе этого профайла отключается компиляция и выполнения unit test-ов-->
+    <profile>
+      <id>SkipTestCompilation</id>
+      <properties>
+        <build.profile.id>SkipTestCompilation</build.profile.id>
+        <maven.test.skip>true</maven.test.skip>
+      </properties>
+    </profile>
+    <!--SkipTestExecution – при выборе этого профайла отключается только выполнение unit test-ов, но при этом они компилируются-->
+    <profile>
+      <id>SkipTestExecution </id>
+      <properties>
+        <build.profile.id>SkipTestExecution </build.profile.id>
+        <skipTests>true</skipTests>
+      </properties>
+    </profile>
+    <!--ITestExecution – при выборе – включается и компиляция и выболнение-->
+    <profile>
+      <id>ITestExecution </id>
+      <properties>
+        <build.profile.id>ITestExecution </build.profile.id>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.12</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
