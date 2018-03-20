@@ -36,7 +36,7 @@ public class UiDateControllerTest {
 
         String result2016 = receiver.parseDate("29.02.2016");
 
-        assertEquals("MONDAY", result2016);
+        assertEquals("MONDAY!", result2016);
     }
 
     @Rule
