@@ -8,7 +8,7 @@ import java.text.ParseException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ServiceDatesIntegrationTest {
+public class ITServiceDatesTest {
     QualifierDates dateDAO = new DatesDAO();
     ParserDates parserDate = new ServiceDates(dateDAO);
 

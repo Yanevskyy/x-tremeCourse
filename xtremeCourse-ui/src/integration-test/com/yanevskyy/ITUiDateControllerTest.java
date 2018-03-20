@@ -8,7 +8,7 @@ import java.text.ParseException;
 
 import static org.junit.Assert.assertEquals;
 
-public class UiDateControllerIntegrationTest {
+public class ITUiDateControllerTest {
     QualifierDates dao = new DatesDAO();
     ParserDates parser = new ServiceDates(dao);
     ReceiverDates receiver = new UiDateController(parser);
