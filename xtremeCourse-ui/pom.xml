@@ -7,21 +7,18 @@
     <artifactId>xtremeCourse</artifactId>
     <version>1.0</version>
   </parent>
-  <groupId>com.yanevskyy</groupId>
   <artifactId>xtremeCourse-ui</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>xtremeCourse-ui</name>
-  <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>com.yanevskyy</groupId>
       <artifactId>xtremeCourse-services</artifactId>
       <exclusions>
-      <exclusion>
-        <groupId>com.yanevskyy</groupId>
-        <artifactId>baseModule</artifactId>
-      </exclusion>
+        <exclusion>
+          <groupId>com.yanevskyy</groupId>
+          <artifactId>baseModule</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
